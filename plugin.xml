@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com-yyzh-plugin-open-app"
+    version="0.1">
+
+    <name>OpenApp</name>
+    <description>
+        根据包名打开其他app。
+    </description>
+    <license>MIT</license>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="OpenApp.js">
+       <clobbers target="navigator.OpenApp" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="OpenApp">
+                <param name="android-package" value="com.yyzh.plugin.openapp.OpenApp"/>
+            </feature>
+        </config-file>
+        <source-file src="src/android/OpenApp.java" target-dir="src/com/yyzh/plugin/openapp" />
+    </platform>
+</plugin>
